@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class PPT {
-    //variables globals que necessitarem per poder correr el programa.
+    //variables globals que necessitarem per poder correr el programa.holaquetal
     public static int idioma;
     public static int contador=1;
     public static int tiradaUser=0;
