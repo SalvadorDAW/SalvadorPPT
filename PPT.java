@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class PPT {
-    //variables globals que necessitarem per poder correr el programa.HOLA
+    //variables globals que necessitarem per poder correr el programa.
     public static int idioma;
     public static int contador=1;
     public static int tiradaUser=0;
@@ -22,7 +22,7 @@ public class PPT {
         switch(idioma){//Un switch per a cada idioma
         case 1://1 Catala
             nronda++;//Aquí anam sumant el nombre de rondes
-            System.out.println("Eligeix opció:\n1.Pedra\n2.Paper\n3.Tissora\nOpció: ");
+            System.out.println("Eligeix opció:\n1.Pedra\n2.Paper\n3.Tissora\n4.Llangardaix\n5.Spock\nOpció: ");
             tiradausuari();//Métode per elegir la opció del usuari.
             switch(tiradaUser){//Un switch per sabre la opció elegida del usuari
             case 1:
@@ -33,6 +33,12 @@ public class PPT {
             break; 
              case 3:
             System.out.println("Usuari:Tissora");
+            break; 
+            case 4:
+            System.out.println("Usuari:Llangardaix");
+            break; 
+            case 5:
+            System.out.println("Usuari:Spock");
             break; 
             }
             tiradamaquina();//Métode per elegir la opció de la màquina.
@@ -46,6 +52,12 @@ public class PPT {
             case 3:
             System.out.println("Màquina:Tissora");
             break; 
+            case 4:
+            System.out.println("Màquina:Llangardaix");
+            break; 
+            case 5:
+            System.out.println("Màquina:Spock");
+            break;
             }
             guanyadorronda();//Métode per sabre qui guanya a cada ronda.
                         System.out.println("Punts Usuari: "+guanyadorUser);
@@ -129,7 +141,7 @@ public class PPT {
 
 public static void seleccionaridioma() {
         //Mostram un missatge per que l'usuari pugui saber que tecletjar.
-        System.out.println("Pedra Paper Tissora");
+        System.out.println("Pedra Paper Tissora Llangardaix Spock");
         System.out.println("Tria un idioma/Select language/Elige un idioma:\n1.Català.\n2.Castellano.\n3.English.");
         System.out.println("Opció/Opción/Option: ");
         while(verificador==0){//utilitzam un bucle per fer un control d'errors, només poden ficar 1, 2 o 3.
@@ -152,6 +164,10 @@ public static void seleccionaridioma() {
                     guanyadorMaquina++;
                 }else if(tiradaMaquina==3){//Si la màquina introdueix un 3, l'usuari guanya.
                     guanyadorUser++;
+                }else if(tiradaMaquina==4){
+                    guanyadorUser++;
+                }else if(tiradaMaquina==5){
+                    guanyadorMaquina++;
                 }
                 break;
             }
@@ -160,6 +176,10 @@ public static void seleccionaridioma() {
                     guanyadorUser++;
                 }else if(tiradaMaquina==3){//Si la màquina introdueix un 3, la màquina guanya.
                     guanyadorMaquina++;
+                }else if(tiradaMaquina==4){
+                    guanyadorMaquina++;
+                }else if(tiradaMaquina==5){
+                    guanyadorUser++;
                 }
                 break;
             }
@@ -168,6 +188,34 @@ public static void seleccionaridioma() {
                     guanyadorMaquina++;                    
                 }else if(tiradaMaquina==2) {//Si la màquina introdueix un 2, l'usuari guanya.
                     guanyadorUser++;
+                }else if(tiradaMaquina==4){
+                    guanyadorUser++;
+                }else if(tiradaMaquina==5){
+                    guanyadorMaquina++;
+                }
+                break;
+            }
+            case 4: {//Si l'usuari introdueix un 3
+                if(tiradaMaquina==1) {//Si la màquina introdueix un 1, la màquina guanya.
+                    guanyadorMaquina++;                    
+                }else if(tiradaMaquina==2) {//Si la màquina introdueix un 2, l'usuari guanya.
+                    guanyadorUser++;
+                }else if(tiradaMaquina==3){
+                    guanyadorMaquina++;
+                }else if(tiradaMaquina==5){
+                    guanyadorUser++;
+                }
+                break;
+            }
+            case 5: {//Si l'usuari introdueix un 3
+                if(tiradaMaquina==1) {//Si la màquina introdueix un 1, la màquina guanya.
+                    guanyadorUser++;                    
+                }else if(tiradaMaquina==2) {//Si la màquina introdueix un 2, l'usuari guanya.
+                    guanyadorMaquina++;
+                }else if(tiradaMaquina==3){
+                    guanyadorUser++;
+                }else if(tiradaMaquina==4){
+                    guanyadorMaquina++;
                 }
                 break;
             }
@@ -181,7 +229,7 @@ public static void seleccionaridioma() {
     {
         switch (idioma) { //Idioma instruccions català
         case 1: {
-            System.out.println("Juga a el millor de tres triant pedra, paper o tisores. Si no aconsegueixes guanyar a la màquina et convertiràs en un LOSER");
+            System.out.println("Juga a el millor de tres triant pedra, paper, tisores, llangardaix o spock. Si no aconsegueixes guanyar a la màquina et convertiràs en un LOSER");
             break;
         }
         case 2: { //Idioma instruccions castellà
@@ -199,18 +247,18 @@ public static void seleccionaridioma() {
     }
     public static void tiradamaquina() { //Aquest bloc de codi el que fa és elegir la tirada de la màquina aleatoriament.
         Random rand = new Random();
-        tiradaMaquina = rand.nextInt(3) + 1;
+        tiradaMaquina = rand.nextInt(5) + 1;
     }
 
     public static void tiradausuari(){
         while(verificador==0){//Un bucle per fer un control d'errors, no ens poden ficar una altra cosa que no sigui 1,2 o 3.
         teclat2 = new Scanner(System.in);
         tiradaUser = teclat2.nextInt();
-            if (tiradaUser == 1 || tiradaUser == 2 || tiradaUser == 3){
+            if (tiradaUser == 1 || tiradaUser == 2 || tiradaUser == 3 || tiradaUser == 4 || tiradaUser == 5){
                 verificador=1;
             }
             else{
-                System.out.println("Error, fica 1, 2 o 3.");
+                System.out.println("Error, fica 1, 2, 3, 4 o 5.");
                 System.out.println("Opció/Opción/Option: ");
             }
         }
